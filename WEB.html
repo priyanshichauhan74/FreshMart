@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: lightgrey;
+        border: 20px solid green;
+
+    }
+
+    main {
+        background-color: lightgrey;
+    }
+
+    nav {
+        height: 60px;
+        border-bottom: 1px solid blue;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: white;
+        padding: 0 50px;
+        position: sticky;
+    }
+
+    .logo {
+        font-size: 22px;
+        font-weight: 700;
+        color: green;
+    }
+
+    .input {
+        width: 35%;
+    }
+
+    .input input {
+        width: 100%;
+        padding: 10px 20px;
+        border-radius: 10px;
+        border: 1px solid lightgrey;
+    }
+
+    .nav-items {
+        display: flex;
+        gap: 20px;
+    }
+
+    .nav-items li {
+        list-style: none;
+        /* font-size: 18px;
+        font-weight: 500; */
+    }
+
+    .hero {
+        height: 50vh;
+        border: 1px solid lightgrey;
+        margin: 0 80px 0 60px;
+        margin-bottom: 20px;
+        border-radius: 20px;
+        background: linear-gradient(to right, #d8f3dc, #b7e4c7);
+        display: flex;
+        justify-content: space-between;
+        padding: 40px 50px;
+    }
+
+    .hero-text {
+        /* width: 50%; */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        /* animation: float 2s infinite alternate; */
+    }
+
+    .hero-text h1 {
+        font-size: 45px;
+    }
+
+    .hero-text p {
+        font-size: 20px;
+    }
+
+    .hero-text button {
+        width: 25%;
+        padding: 15px;
+        border-radius: 20px;
+        border: none;
+        background-color: green;
+        color: white;
+        font-weight: 500;
+        transition: 1s ease-in-out 2s;
+    }
+
+    .cart-cont {
+        font-size: 120px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: float 2s infinite alternate;
+
+    }
+
+    .category {
+        /* height: 30vh; */
+        border: 1px solid lightgrey;
+        /* margin: 0 60px; */
+        background-color: white;
+        padding: 20px 0;
+        position: sticky;
+        top: 0px;
+    }
+
+    .category h2 {
+        /* text-align: center; */
+        font-size: 30px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        gap: 20px;
+        padding: 0 0 0 50px;
+    }
+
+    .cat-items {
+        width: 35%;
+        display: flex;
+        justify-content: space-between;
+        margin-left: 50px;
+        gap: 20px;
+
+        /* display: flex;
+        justify-content: space-evenly;
+        align-items: center; */
+        /* gap: 20px; */
+        /* margin: 50px 80px; */
+    }
+
+    .cat-item-wrapper {
+        display: flex;
+        flex-direction: column;
+        /* justify-content: center; */
+        align-items: center;
+        /* padding: 30px; */
+        gap: 10px;
+    }
+
+    .box {
+        width: 100px;
+        height: 100px;
+        border-radius: 50px;
+        background-color: #d8f3dc;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 50px;
+    }
+
+    .container {
+        /* height: 100vh;
+        width: 100px; */
+        background-color: lightgray;
+        margin-left: 30px;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    h2 {
+        /* font-size: 30px; */
+        margin-top: 20px;
+        /* display: flex;
+        justify-content: left; */
+        /* margin-bottom: 20px; */
+        /* gap: 20px; */
+        padding: 0 0 0 50px;
+    }
+
+    .container-box {
+        height: 243px;
+        width: 200px;
+        border: 1px solid black;
+        background-color: white;
+        border-radius: 20px;
+        margin: 20px;
+    }
+
+    .container-box-box {
+        border: 1px solid black;
+        height: 143px;
+        border-radius: 20px;
+        background-color: lightgrey;
+        margin: 10px;
+        position: relative;
+
+    }
+
+    .child {
+        height: 20px;
+        width: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 10px;
+        right: -10px;
+        background-color: red;
+        color: azure;
+        font-size: 10px;
+
+    }
+
+    .c {
+        padding: 0 10px 0 20px;
+        font-weight: bold;
+    }
+
+    .Price {
+        padding: 0 0 0 20px;
+        font-weight: bold;
+        color: green;
+    }
+
+    .container-box-box {
+        font-size: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    button:hover {
+        background-color: orange;
+        color: white;
+        /* transition: 1s ease-in-out 2s; */
+    }
+
+    .cart-cont:hover {
+        /* background-color: orange; */
+        color: white;
+        transform: scale(1.2);
+        transition-delay: enlarge;
+    }
+
+    @keyframes float {
+        0% {
+            transform: translate(10px);
+        }
+
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    @media(max-width:600px) {
+
+        nav {
+            height: 45%;
+            display: grid;
+            grid-template-areas: "logo navItems"
+                "searchBar searchBar";
+            gap: 10px;
+
+            /* border: 5px solid green; */
+        }
+
+        .logo {
+            grid-area: logo;
+        }
+
+        .nav-items {
+            grid-area: navItems;
+            /* display: flex;
+            justify-content: space-evenly; */
+        }
+
+        .input {
+            grid-area: searchBar;
+            width: 100%;
+        }
+
+        .hero {
+            flex-direction: row;
+            /* justify-content: center; */
+            /* align-items: center; */
+            margin: 20px;
+            padding: 20px 20px;
+        }
+
+        .category h2 {
+            padding: 0 0 0 30px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            padding: 0 0 40px 40px
+        }
+
+    }
+</style>
+
+<body>
+    <nav>
+        <div class="logo">FreshMart</div>
+        <div class="input"><input placeholder="Search fruits,vegetable..." /></div>
+        <div class="nav-items">
+            <li>Home</li>
+            <li>Products</li>
+            <li>Cart</li>
+        </div>
+    </nav>
+    <main>
+        <div class="hero">
+            <div class="hero-text">
+                <h1>Fresh groceries<br>delivered to you</h1>
+                <p>Fruits,vegetables and daily essentials delivered fresh.</p>
+                <button>Shop</button>
+            </div>
+            <div class="cart-cont">
+                🛒
+            </div>
+        </div>
+    </main>
+    <div class="category">
+        <h2>Shop by Category</h2>
+        <div class="cat-items">
+            <div class="cat-item-wrapper">
+                <div class="box">🍎</div>
+                <p>Fruits</p>
+            </div>
+            <div class="cat-item-wrapper">
+                <div class="box">🥦</div>
+                <p>Vegetables</p>
+            </div>
+            <div class="cat-item-wrapper">
+                <div class="box">🥛</div>
+                <p>Dairy</p>
+            </div>
+            <div class="cat-item-wrapper">
+                <div class="box">🍞</div>
+                <p>Bakery</p>
+            </div>
+            <div class="cat-item-wrapper">
+                <div class="box">🥤</div>
+                <p>Drinks</p>
+            </div>
+        </div>
+    </div>
+    <h2>Popular Products </h2>
+    <div class="container">
+
+        <div class="container-box">
+            <div class="container-box-box">🍎
+                <div class="child">New</div>
+            </div>
+            <div class="c">Fresh Apple</div>
+            <div class="Price">$120/kg</div>
+        </div>
+        <div class="container-box">
+            <div class="container-box-box">🥦
+                <div class="child">New</div>
+            </div>
+            <div class="c">Fresh Broccoli</div>
+            <div class="Price">$80/kg</div>
+        </div>
+        <div class="container-box">
+            <div class="container-box-box">🥛
+                <div class="child">New</div>
+            </div>
+            <div class="c">Fresh Milk</div>
+            <div class="Price">$60/litre</div>
+        </div>
+        <div class="container-box">
+            <div class="container-box-box">🍞
+                <div class="child">New</div>
+            </div>
+            <div class="c">Brown Bread</div>
+            <div class="Price">$45</div>
+        </div>
+        <div class="container-box">
+            <div class="container-box-box">🍊
+                <div class="child">New</div>
+            </div>
+            <div class="c">Fresh Oranges</div>
+            <div class="Price">$90/kg</div>
+        </div>
+        <div class="container-box">
+            <div class="container-box-box">🍌
+                <div class="child">New</div>
+            </div>
+            <div class="c">Banana</div>
+            <div class="Price">$50/dozen</div>
+        </div>
+        <div class="container-box">
+            <div class="container-box-box">🍅
+                <div class="child">New</div>
+            </div>
+            <div class="c">Tomatoes</div>
+            <div class="Price">$40/kg</div>
+        </div>
+        <div class="container-box">
+            <div class="container-box-box">🥤
+                <div class="child">New</div>
+            </div>
+            <div class="c">Orange Juice</div>
+            <div class="Price">$110</div>
+        </div>
+    </div>
+</body>
+
+</html>
